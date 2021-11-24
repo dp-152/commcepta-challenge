@@ -24,8 +24,99 @@
   },
   "eslintConfig": {
     "extends": [
+      "google",
       "react-app",
       "react-app/jest"
+    ],
+    "rules": {
+      "arrow-parens": [
+        "error",
+        "as-needed"
+      ],
+      "operator-linebreak": [
+        "error",
+        "after",
+        {
+          "overrides": {
+            "?": "before",
+            ":": "before"
+          }
+        }
+      ],
+      "eqeqeq": [
+        "error",
+        "smart"
+      ],
+      "object-curly-spacing": [
+        "error",
+        "always"
+      ],
+      "quotes": [
+        "warn",
+        "double",
+        {
+          "avoidEscape": true
+        }
+      ],
+      "comma-dangle": [
+        "error",
+        "always-multiline"
+      ],
+      "quote-props": [
+        "error",
+        "as-needed"
+      ],
+      "space-before-function-paren": [
+        "error",
+        {
+          "asyncArrow": "always",
+          "anonymous": "always",
+          "named": "never"
+        }
+      ],
+      "indent": [
+        "error",
+        2,
+        {
+          "CallExpression": {
+            "arguments": 1
+          },
+          "FunctionDeclaration": {
+            "body": 1,
+            "parameters": 1
+          },
+          "FunctionExpression": {
+            "body": 1,
+            "parameters": 1
+          },
+          "MemberExpression": 1,
+          "ObjectExpression": 1,
+          "SwitchCase": 1,
+          "ignoredNodes": [
+            "ConditionalExpression"
+          ]
+        }
+      ],
+      "require-jsdoc": 0,
+      "valid-jsdoc": 0,
+      "max-len": [
+        "error",
+        {
+          "code": 80,
+          "tabWidth": 2,
+          "ignoreUrls": true,
+          "ignoreComments": true,
+          "ignorePattern": "goog.(module|require)"
+        }
+      ]
+    },
+    "overrides": [
+      {
+        "files": [
+          "**/*.ts?(x)"
+        ],
+        "rules": {}
+      }
     ]
   },
   "browserslist": {
