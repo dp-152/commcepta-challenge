@@ -14,16 +14,16 @@ interface Props {
 export default function Button(props: Props): ReactElement {
   return (
     <Link to={props.target}>
-      {props.icon ? <img src={props.icon} alt={props.icon} /> : ""}
-      <span
+      <div
         className={
           "Button " +
           `Button-theme-${props.theme} ` +
           `Button-size-${props.size}`
         }
       >
-        {props.text}
-      </span>
+        {props.icon ? <img src={props.icon} alt={props.icon} /> : ""}
+        <span>{props.text}</span>
+      </div>
     </Link>
   );
 }
