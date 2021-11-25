@@ -5,7 +5,7 @@ import "../css/components/Button.css";
 
 interface Props {
   text: string;
-  theme: "dark" | "light";
+  theme: "dark" | "light"; // TODO: Fetch this option from context?
   size: "small" | "large";
   target: string;
   icon?: string;
