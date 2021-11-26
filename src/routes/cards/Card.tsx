@@ -4,75 +4,30 @@ import BackButton from "../../components/BackButton";
 
 import CardContainer from "../../components/CardContainer";
 import { CardData } from "../../data/CardData";
+import repo from "../../repository/DefaultCommceptersRepository";
 
-const dummyData: CardData[] = [
-  {
-    id: 1,
-    firstName: "John",
-    lastName: "Smith",
-    phone: "555-013-9999",
-    email: "john.smith@example.com",
-    company: "SomeCompany",
-    position: "Accountant",
-    address: "347 Oak St.",
-    city: "Houston",
-    state: "Texas",
-  },
-  {
-    id: 2,
-    firstName: "Jane",
-    lastName: "Doe",
-    phone: "555-292-5157",
-    email: "jane.doe@mail.co",
-    company: "SomeOtherCompany",
-    position: "Sales Support",
-    address: "1360 Cambridge Drive",
-    city: "Phoenix",
-    state: "Arizona",
-  },
-  {
-    id: 3,
-    firstName: "Eric",
-    lastName: "Brown",
-    phone: "555-573-4531",
-    email: "eric.s.brown@contoso.com",
-    company: "Druther's",
-    position: "Pamphlet Binding Worker",
-    address: "586 Little Street",
-    city: "Akron",
-    state: "Ohio",
-  },
-];
-
-async function fetchFromDummy(id: number) {
-  return dummyData.find(el => el.id === id);
+interface Props {
+  data?: CardData;
 }
 
-const navInstances: any[] = [];
-
-export default function Card(): ReactElement {
-  const [userData, setUserData] = useState<any>({});
+export default function Card({ data }: Props): ReactElement {
+  const [userData, setUserData] = useState<CardData>(data || ({} as CardData));
   const params = useParams();
   const nav = useNavigate();
 
-  if (!navInstances.includes(nav)) navInstances.push(nav);
-  console.log(navInstances);
-
   useEffect(() => {
     (async function () {
-      console.log("Running useEffect for data fetcher");
-      if (!params.id) {
+      if (data) return;
+      const repoData = await repo.getByID(+params!.id!);
+      if (!repoData) {
+        console.warn("No user found with this id.");
         nav("/not-found");
         return;
       }
 
-      // TODO: Replace with API call
-      const data = await fetchFromDummy(+params.id);
-      if (!data) nav("/not-found");
-
-      setUserData(data);
+      setUserData(repoData);
     })();
-  }, [params, nav]);
+  }, [data, params, nav]);
 
   return (
     <div>
