@@ -10,6 +10,7 @@ interface Props {
   label: string;
   changeHandler: (e: ChangeEvent<HTMLSelectElement>) => void;
   options: Option[];
+  promptMessage?: string;
 }
 
 export default function SelectField({
@@ -17,11 +18,15 @@ export default function SelectField({
   label,
   changeHandler,
   options,
+  promptMessage,
 }: Props): ReactElement {
   return (
     <div>
       <label htmlFor={name}>{label}</label>
       <select name={name} onChange={changeHandler}>
+        <option disabled selected value={undefined}>
+          {promptMessage || ""}
+        </option>
         {options.map(el => (
           <option key={`${el.id}_${el.text}`} value={el.id}>
             {el.text}
