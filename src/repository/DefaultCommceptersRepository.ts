@@ -38,13 +38,15 @@ const repo: ICommceptersRepository = {
   async getQRCode(id: number) {
     let res;
     try {
-      res = await axios.get(apiUrl + "/vcard/qrcode/commcepter/" + id);
+      res = await axios.get(apiUrl + "/vcard/qrcode/commcepter/" + id, {
+        responseType: "arraybuffer",
+      });
     } catch (err) {
       console.error(err);
       return "";
     }
 
-    return btoa(res.data);
+    return Buffer.from(res.data).toString("base64");
   },
 
   async makeQRCode(data: CardData) {
@@ -52,13 +54,15 @@ const repo: ICommceptersRepository = {
 
     let res;
     try {
-      res = await axios.post(apiUrl + "/vcard/qrcode/new", mapped);
+      res = await axios.post(apiUrl + "/vcard/qrcode/new", mapped, {
+        responseType: "arraybuffer",
+      });
     } catch (err) {
       console.error(err);
       return "";
     }
 
-    return btoa(res.data);
+    return Buffer.from(res.data).toString("base64");
   },
 };
 
