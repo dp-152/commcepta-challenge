@@ -3,19 +3,7 @@ import { useParams, useNavigate } from "react-router";
 import BackButton from "../../components/BackButton";
 
 import CardContainer from "../../components/CardContainer";
-
-interface CardData {
-  id: number;
-  firstName: string;
-  lastName: string;
-  phone: string;
-  email: string;
-  company: string;
-  position: string;
-  address: string;
-  city: string;
-  state: string;
-}
+import { CardData } from "../../data/CardData";
 
 const dummyData: CardData[] = [
   {
