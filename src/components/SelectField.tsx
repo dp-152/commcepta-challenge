@@ -24,7 +24,7 @@ export default function SelectField({
     <div>
       <label htmlFor={name}>{label}</label>
       <select name={name} onChange={changeHandler}>
-        <option disabled selected value={undefined}>
+        <option hidden disabled selected value={undefined}>
           {promptMessage || ""}
         </option>
         {options.map(el => (
