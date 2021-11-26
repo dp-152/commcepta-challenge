@@ -6,19 +6,15 @@ import CardContainer from "../../components/CardContainer";
 import { CardData } from "../../data/CardData";
 import repo from "../../repository/DefaultCommceptersRepository";
 
-interface Props {
-  data?: CardData;
-}
 
-export default function Card({ data }: Props): ReactElement {
-  const [userData, setUserData] = useState(data || ({} as CardData));
+export default function Card(): ReactElement {
+  const [userData, setUserData] = useState({} as CardData);
   const [qrCode, setQrCode] = useState("");
   const params = useParams();
   const nav = useNavigate();
 
   useEffect(() => {
     (async function () {
-      if (data) return;
       const repoData = await repo.getByID(+params!.id!);
       if (!repoData) {
         console.warn("No user found with this id.");
@@ -28,7 +24,7 @@ export default function Card({ data }: Props): ReactElement {
 
       setUserData(repoData);
     })();
-  }, [data, params, nav]);
+  }, [params, nav]);
 
   useEffect(() => {
     (async function () {
