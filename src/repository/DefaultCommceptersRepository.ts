@@ -4,6 +4,9 @@ import {
 } from "../data/CommcepterDataDTOs";
 import ICommceptersRepository from "./ICommceptersRepository";
 import axios from "axios";
+import { map } from "../util/mapper";
+import { inboundToInternal } from "../data/mappings";
+import { CardData } from "../data/CardData";
 
 const apiUrl = process.env.REACT_APP_API_URL || "http://localhost:3000";
 
@@ -16,7 +19,9 @@ const repo: ICommceptersRepository = {
       console.error(err);
       return [];
     }
-    return res.data as CommcepterDataInboundDTO[];
+    return res.data.map((e: CommcepterDataInboundDTO) =>
+      map(e, inboundToInternal),
+    ) as CardData[];
   },
 
   async getByID(id: number) {
@@ -27,7 +32,7 @@ const repo: ICommceptersRepository = {
       console.error(err);
       return false;
     }
-    return res.data as CommcepterDataInboundDTO;
+    return map(res.data, inboundToInternal) as CardData;
   },
 
   async getQRCode(id: number) {
