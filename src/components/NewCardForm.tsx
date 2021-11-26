@@ -121,7 +121,8 @@ export default function NewCardForm({ submitHandler }: Props): ReactElement {
         errors={errors}
         opts={opts.addressField}
       />
-      <input type="submit" />
+      {/* TODO: Rework Button component to fit this case as well */}
+      <button type="submit">gerar vCard</button>
     </form>
   );
 }
