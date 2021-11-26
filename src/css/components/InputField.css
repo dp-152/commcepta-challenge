@@ -5,3 +5,7 @@
 .InputField-error {
   background-color: red;
 }
+
+.InputField-errormsg {
+  font-weight: bold;
+}

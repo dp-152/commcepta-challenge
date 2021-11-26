@@ -51,11 +51,7 @@ export default function InputField({
       ) : (
         <input {...registration} />
       )}
-      {error && (
-        <span>
-          Type: {error.type} Message: {error.message}
-        </span>
-      )}
+      {error && <span className="InputField-errormsg">{error.message}</span>}
     </span>
   );
 }
