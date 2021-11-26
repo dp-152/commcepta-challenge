@@ -23,8 +23,8 @@ export default function SelectField({
   return (
     <div>
       <label htmlFor={name}>{label}</label>
-      <select name={name} onChange={changeHandler}>
-        <option hidden disabled selected value={undefined}>
+      <select name={name} defaultValue="" onChange={changeHandler}>
+        <option hidden disabled value="">
           {promptMessage || ""}
         </option>
         {options.map(el => (
