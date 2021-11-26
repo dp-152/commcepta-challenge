@@ -8,6 +8,8 @@ import SelectField, {
 } from "../../components/SelectField";
 import VCardGeneratorIcon from "../../components/VCardGeneratorIcon";
 import BackButton from "../../components/BackButton";
+import repo from "../../repository/DefaultCommceptersRepository";
+import { CardData } from "../../data/CardData";
 
 export default function Cards(): ReactElement {
   const [selOpts, setSelOpts] = useState<SelectOption[]>([]);
@@ -15,22 +17,17 @@ export default function Cards(): ReactElement {
   const [isButtonDisabled, setIsButtonDisabled] = useState(true);
 
   useEffect(() => {
-    // TODO: replace with API call
-    setSelOpts([
-      {
-        id: 1,
-        text: "UserOne",
-      },
-      {
-        id: 2,
-        text: "UserTwo",
-      },
-      {
-        id: 3,
-        text: "UserThree",
-      },
-    ]);
-  }, []);
+    (async function () {
+      const cards = (await repo.getAll()).map(
+        (el: CardData) =>
+          ({
+            id: el.id,
+            text: `${el.firstName} ${el.lastName}`,
+          } as SelectOption),
+      );
+      setSelOpts(cards);
+    })();
+  }, [setSelOpts]);
 
   useEffect(() => {
     if (!!selected) setIsButtonDisabled(false);
