@@ -5,7 +5,7 @@ import {
 import ICommceptersRepository from "./ICommceptersRepository";
 import axios from "axios";
 import { map } from "../util/mapper";
-import { inboundToInternal } from "../data/mappings";
+import { inboundToInternal, internalToOutbound } from "../data/mappings";
 import { CardData } from "../data/CardData";
 
 const apiUrl = process.env.REACT_APP_API_URL || "http://localhost:3000";
@@ -47,10 +47,12 @@ const repo: ICommceptersRepository = {
     return btoa(res.data);
   },
 
-  async makeQRCode(data: CommcepterDataOutboundDTO) {
+  async makeQRCode(data: CardData) {
+    const mapped = map(data, internalToOutbound) as CommcepterDataOutboundDTO;
+
     let res;
     try {
-      res = await axios.post(apiUrl + "/vcard/qrcode/new");
+      res = await axios.post(apiUrl + "/vcard/qrcode/new", mapped);
     } catch (err) {
       console.error(err);
       return "";
