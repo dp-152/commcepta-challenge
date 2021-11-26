@@ -11,7 +11,7 @@ interface Props {
 }
 
 export default function Card({ data }: Props): ReactElement {
-  const [userData, setUserData] = useState<CardData>(data || ({} as CardData));
+  const [userData, setUserData] = useState(data || ({} as CardData));
   const [qrCode, setQrCode] = useState("");
   const params = useParams();
   const nav = useNavigate();
