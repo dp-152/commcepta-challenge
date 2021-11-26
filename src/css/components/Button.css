@@ -8,8 +8,16 @@
   background-color: #FA8E2C;
 }
 
+.Button-theme-light.disabled {
+  background-color: #aaa;
+}
+
 .Button-theme-dark {
   background-color: #0FD9E7;
+}
+
+.Button-theme-dark.disabled {
+  background-color: #ccc;
 }
 
 .Button-size-small {
