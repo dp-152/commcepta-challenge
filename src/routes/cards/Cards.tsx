@@ -45,6 +45,7 @@ export default function Cards(): ReactElement {
           label="Selecione um candidato da lista"
           changeHandler={handleChangeSelected}
           options={selOpts}
+          promptMessage="Candidato"
         />
         <Button
           target={"/cards/" + selected}
