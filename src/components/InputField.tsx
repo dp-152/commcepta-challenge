@@ -45,6 +45,7 @@ export default function InputField({
             <NumberFormat {...field} format={format} mask="_" />
           )}
           name={fieldName}
+          rules={opts}
           control={control}
         />
       ) : (
