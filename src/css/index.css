@@ -38,6 +38,13 @@ a {
 
 /* Global styles */
 
+/* Anchor tag disabled state */
+
+a.disabled {  
+  pointer-events: none;
+  cursor: default;
+}
+
 /* Form elements */
 
 input,
