@@ -1,6 +1,7 @@
 import React, { ReactElement, useState, useEffect, useContext } from "react";
 import { useParams, useNavigate } from "react-router";
-import BackButton from "../../components/BackButton";
+
+import "../../css/routes/cards/Card.css";
 
 import CardContainer from "../../components/CardContainer";
 import ThemeContext from "../../contexts/ThemeContext";
@@ -8,7 +9,7 @@ import { CardData } from "../../data/CardData";
 import repo from "../../repository/DefaultCommceptersRepository";
 
 export default function Card(): ReactElement {
-  const { setTheme } = useContext(ThemeContext);
+  const { theme, setTheme } = useContext(ThemeContext);
   const [userData, setUserData] = useState({} as CardData);
   const [qrCode, setQrCode] = useState("");
   const params = useParams();
@@ -44,14 +45,13 @@ export default function Card(): ReactElement {
   }, [params, userData, setQrCode]);
 
   return (
-    <div>
-      <BackButton />
+    <section className={`CardPage-wrapper theme-${theme}`}>
       <CardContainer
         firstName={userData.firstName}
         lastName={userData.lastName}
         position={userData.position}
         b64QrCode={qrCode}
       />
-    </div>
+    </section>
   );
 }
