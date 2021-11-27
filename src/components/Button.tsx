@@ -22,7 +22,10 @@ export default function Button({
   const { theme } = useContext(ThemeContext);
   const location = useLocation();
   return (
-    <Link to={isDisabled ? location.pathname : target}>
+    <Link
+      to={isDisabled ? location.pathname : target}
+      className={isDisabled ? "disabled" : ""}
+    >
       <div
         className={
           "Button " +
