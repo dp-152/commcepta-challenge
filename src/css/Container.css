@@ -16,6 +16,9 @@
 }
 
 .Container-main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   min-height: calc(100vh - 86px - 57px);
   background-image: url("../assets/riscos\ esquerda.svg"), url("../assets/riscos\ direita.svg");
   background-position: left bottom, right top;
