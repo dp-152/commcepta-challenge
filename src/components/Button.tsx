@@ -12,21 +12,33 @@ interface Props {
   isDisabled?: boolean;
 }
 
-export default function Button(props: Props): ReactElement {
+export default function Button({
+  text,
+  size,
+  target,
+  icon,
+  isDisabled,
+}: Props): ReactElement {
   const { theme } = useContext(ThemeContext);
   const location = useLocation();
   return (
-    <Link to={props.isDisabled ? location.pathname : props.target}>
+    <Link to={isDisabled ? location.pathname : target}>
       <div
         className={
           "Button " +
           `theme-${theme} ` +
-          `Button-size-${props.size} ` +
-          (props.isDisabled ? "disabled" : "")
+          `size-${size} ` +
+          (isDisabled ? "disabled" : "")
         }
       >
-        {props.icon ? <img src={props.icon} alt={props.icon} /> : ""}
-        <span>{props.text}</span>
+        {icon ? (
+          <span className="Button-icon">
+            <img src={icon} alt={icon} height="45" />
+          </span>
+        ) : (
+          ""
+        )}
+        <span className={"Button-text" + (icon ? "-icon" : "")}>{text}</span>
       </div>
     </Link>
   );
