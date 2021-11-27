@@ -33,6 +33,8 @@ a {
   --color-light-theme-box-shadow2: #0000000d;
   --color-light-theme-field-border: #ffffff;
   --color-light-theme-field-background: #f9fafb;
+  --color-light-theme-card-border: #ffffff;
+  --color-light-theme-card-background: #f9fafb;
 
   --color-topbar: #2e79de;
 }
