@@ -6,10 +6,11 @@
   border-radius: 23px;
 }
 .Button.theme-light {
-  background-color: #fa8e2c;
+  background-color: var(--color-light-theme-accent);
+  color: var(--color-light-theme-white);
 }
 .Button.theme-light.disabled {
-  background-color: #aaa;
+  background-color: var(--color-light-theme-faded);
 }
 .Button.theme-dark {
   background-color: var(--color-dark-theme-accent);
