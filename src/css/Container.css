@@ -47,3 +47,12 @@
 .Container-footer-copyrightnotice.theme-dark {
   color: #FFFFFF;
 }
+
+@media (max-width: 1100px) {
+  .Container-header {
+    text-align: center;
+  }
+  .Container-header-logo {
+    margin: auto;
+  }
+}
