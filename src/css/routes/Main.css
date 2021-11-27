@@ -1,5 +1,6 @@
 .MainPage-wrapper {
   display: grid;
+  align-items: center;
   gap: 40px;
   grid-template-columns: repeat(3, minmax(352px, 352px));
 }
