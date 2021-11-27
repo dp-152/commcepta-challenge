@@ -1,0 +1,42 @@
+.Container {
+  min-width: 100vw;
+}
+
+.Container-header {
+  background-color: #2e79de;
+  height: 86px;
+  line-height: 86px;
+  text-align: left;
+}
+
+.Container-header-logo {
+  vertical-align: middle;
+  margin-left: 40px;
+}
+
+.Container-main {
+  min-height: calc(100vh - 86px - 57px);
+}
+
+.Container-footer {
+  height: 57px;
+  line-height: 57px;
+  text-align: left;
+}
+
+.Container-footer-copyrightnotice {
+  font-size: 15px;
+  display: inline-block;
+  vertical-align: middle;
+  line-height: normal;
+  margin-left: 40px;
+  color: #AAAAAA;
+}
+
+.Container-footer-copyrightnotice.theme-light {
+  color: #AAAAAA;
+}
+
+.Container-footer-copyrightnotice.theme-dark {
+  color: #FFFFFF;
+}
