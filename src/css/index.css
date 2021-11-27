@@ -11,3 +11,19 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
+/* Global variables */
+
+:root {
+  --color-dark-theme-background: #2c435b;
+  --color-dark-theme-text: #ffffff;
+  --color-dark-theme-accent: #0fd9e7;
+
+  --color-light-theme-background: #f0f2f5;
+  --color-light-theme-text: #2e79de;
+  --color-light-theme-faded: #aaaaaa;
+  --color-light-theme-accent: #fa8e2c;
+
+  --color-topbar: #2e79de;
+}
