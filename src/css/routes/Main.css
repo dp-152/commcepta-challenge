@@ -1,7 +1,7 @@
 .MainPage-wrapper {
   display: grid;
   gap: 40px;
-  grid-template-columns: repeat(3, minmax(352px, 1fr));
+  grid-template-columns: repeat(3, minmax(352px, 352px));
 }
 
 @media (max-width: 1100px) {
