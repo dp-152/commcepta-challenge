@@ -1,16 +1,28 @@
-import React, { ReactElement, useCallback, useState } from "react";
+import React, {
+  ReactElement,
+  useCallback,
+  useState,
+  useEffect,
+  useContext,
+} from "react";
 
 import BackButton from "../../components/BackButton";
 import CardContainer from "../../components/CardContainer";
 import NewCardForm from "../../components/NewCardForm";
 import VCardGeneratorLogo from "../../components/VCardGeneratorLogo";
+import ThemeContext from "../../contexts/ThemeContext";
 import { CardData } from "../../data/CardData";
 import repo from "../../repository/DefaultCommceptersRepository";
 
 export default function NewCard(): ReactElement {
+  const { setTheme } = useContext(ThemeContext);
   const [userData, setUserData] = useState({} as CardData);
   const [qrCode, setQrCode] = useState("");
   const [shouldRenderCard, setShouldRenderCard] = useState(false);
+
+  useEffect(() => {
+    setTheme("light");
+  }, [setTheme]);
 
   const submitHandler = useCallback((data: CardData) => {
     data.company = "Commcepta";

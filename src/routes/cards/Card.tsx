@@ -1,19 +1,25 @@
-import React, { ReactElement, useState, useEffect } from "react";
+import React, { ReactElement, useState, useEffect, useContext } from "react";
 import { useParams, useNavigate } from "react-router";
 import BackButton from "../../components/BackButton";
 
 import CardContainer from "../../components/CardContainer";
+import ThemeContext from "../../contexts/ThemeContext";
 import { CardData } from "../../data/CardData";
 import repo from "../../repository/DefaultCommceptersRepository";
 
-
 export default function Card(): ReactElement {
+  const { setTheme } = useContext(ThemeContext);
   const [userData, setUserData] = useState({} as CardData);
   const [qrCode, setQrCode] = useState("");
   const params = useParams();
   const nav = useNavigate();
 
   useEffect(() => {
+    setTheme("light");
+  }, [setTheme]);
+
+  useEffect(() => {
+    // TODO: loading animation while waiting for response
     (async function () {
       const repoData = await repo.getByID(+params!.id!);
       if (!repoData) {

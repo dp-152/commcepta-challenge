@@ -1,4 +1,4 @@
-import React, { ReactElement, useState, useEffect } from "react";
+import React, { ReactElement, useState, useEffect, useContext } from "react";
 
 import useInputState from "../../hooks/useInputState";
 
@@ -9,12 +9,18 @@ import SelectField, {
 import VCardGeneratorLogo from "../../components/VCardGeneratorLogo";
 import BackButton from "../../components/BackButton";
 import repo from "../../repository/DefaultCommceptersRepository";
+import ThemeContext from "../../contexts/ThemeContext";
 import { CardData } from "../../data/CardData";
 
 export default function Cards(): ReactElement {
+  const { setTheme } = useContext(ThemeContext);
   const [selOpts, setSelOpts] = useState<SelectOption[]>([]);
   const [selected, handleChangeSelected] = useInputState("");
   const [isButtonDisabled, setIsButtonDisabled] = useState(true);
+
+  useEffect(() => {
+    setTheme("light");
+  }, [setTheme]);
 
   useEffect(() => {
     (async function () {
