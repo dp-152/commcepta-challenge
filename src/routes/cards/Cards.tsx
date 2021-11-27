@@ -2,12 +2,13 @@ import React, { ReactElement, useState, useEffect, useContext } from "react";
 
 import useInputState from "../../hooks/useInputState";
 
+import "../../css/routes/cards/Cards.css";
+
 import Button from "../../components/Button";
 import SelectField, {
   Option as SelectOption,
 } from "../../components/SelectField";
 import VCardGeneratorLogo from "../../components/VCardGeneratorLogo";
-import BackButton from "../../components/BackButton";
 import repo from "../../repository/DefaultCommceptersRepository";
 import ThemeContext from "../../contexts/ThemeContext";
 import { CardData } from "../../data/CardData";
@@ -40,24 +41,29 @@ export default function Cards(): ReactElement {
   }, [selected]);
 
   return (
-    <div>
-      <VCardGeneratorLogo />
-      <div>
-        <SelectField
-          name="candidato"
-          label="Selecione um candidato da lista"
-          changeHandler={handleChangeSelected}
-          options={selOpts}
-          promptMessage="Candidato"
-        />
-        <Button
-          target={"/cards/" + selected}
-          text="gerar vCard"
-          size="small"
-          isDisabled={isButtonDisabled}
-        />
-        <BackButton />
+    <section className="CardsPage-wrapper">
+      <div className="CardsPage-grid-left">
+        <VCardGeneratorLogo />
       </div>
-    </div>
+      <div className="CardsPage-grid-right">
+        <div className="CardsPage-select-field-container">
+          <SelectField
+            name="candidato"
+            label="Selecione um candidato da lista"
+            changeHandler={handleChangeSelected}
+            options={selOpts}
+            promptMessage="Candidato"
+          />
+        </div>
+        <div className="CardsPage-button-container">
+          <Button
+            target={"/cards/" + selected}
+            text="gerar vCard"
+            size="small"
+            isDisabled={isButtonDisabled}
+          />
+        </div>
+      </div>
+    </section>
   );
 }
