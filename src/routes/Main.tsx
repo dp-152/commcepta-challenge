@@ -23,14 +23,12 @@ export default function Main(): ReactElement {
         icon={iconCarinha}
         target="/cards"
         text="selecionar candidato"
-        theme="dark"
         size="large"
       />
       <Button
         icon={iconVCard}
         target="/cards/new"
         text="criar vCard do zero"
-        theme="dark"
         size="large"
       />
     </section>

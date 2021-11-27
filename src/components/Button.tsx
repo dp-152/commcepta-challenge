@@ -1,11 +1,11 @@
-import React, { ReactElement } from "react";
+import React, { ReactElement, useContext } from "react";
 import { Link, useLocation } from "react-router-dom";
+import ThemeContext from "../contexts/ThemeContext";
 
 import "../css/components/Button.css";
 
 interface Props {
   text: string;
-  theme: "dark" | "light"; // TODO: Fetch this option from context?
   size: "small" | "large";
   target: string;
   icon?: string;
@@ -13,13 +13,14 @@ interface Props {
 }
 
 export default function Button(props: Props): ReactElement {
+  const { theme } = useContext(ThemeContext);
   const location = useLocation();
   return (
     <Link to={props.isDisabled ? location.pathname : props.target}>
       <div
         className={
           "Button " +
-          `Button-theme-${props.theme} ` +
+          `theme-${theme} ` +
           `Button-size-${props.size} ` +
           (props.isDisabled ? "disabled" : "")
         }

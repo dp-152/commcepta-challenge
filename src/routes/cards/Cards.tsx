@@ -54,7 +54,6 @@ export default function Cards(): ReactElement {
           target={"/cards/" + selected}
           text="gerar vCard"
           size="small"
-          theme="light"
           isDisabled={isButtonDisabled}
         />
         <BackButton />
