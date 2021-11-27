@@ -1,5 +1,6 @@
 .Container {
   min-width: 100vw;
+  overflow: hidden;
 }
 
 .Container-header {
@@ -16,6 +17,9 @@
 
 .Container-main {
   min-height: calc(100vh - 86px - 57px);
+  background-image: url("../assets/riscos\ esquerda.svg"), url("../assets/riscos\ direita.svg");
+  background-position: left bottom, right top;
+  background-repeat: no-repeat, no-repeat;
 }
 
 .Container-footer {
