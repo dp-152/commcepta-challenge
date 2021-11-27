@@ -12,7 +12,7 @@
   margin-top: -15px;
 }
 .VCardGeneratorLogo-topText.theme-light {
-  color: var(--color-light-theme-text);
+  color: var(--color-light-theme-text-accent);
 }
 .VCardGeneratorLogo-topText.theme-dark {
   color: var(--color-dark-theme-accent);
@@ -31,7 +31,7 @@
     -webkit-text-stroke-width: 2px;
   }
   .VCardGeneratorLogo.theme-light {
-    -webkit-text-stroke-color: var(--color-light-theme-text);
+    -webkit-text-stroke-color: var(--color-light-theme-text-accent);
   }
   .VCardGeneratorLogo.theme-dark {
     -webkit-text-stroke-color: var(--color-dark-theme-accent);
