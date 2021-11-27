@@ -1,9 +1,12 @@
 import React, { ReactElement } from "react";
 
+import "../css/components/VCardGeneratorLogo.css";
+
 export default function VCardGeneratorLogo(): ReactElement {
   return (
-    <div>
-      <h1>vCard generator</h1>
+    <div className="VCardGeneratorLogo">
+      <span className="VCardGeneratorLogo-topText">vCard</span>
+      <span className="VCardGeneratorLogo-bottomText">generator</span>
     </div>
   );
 }
