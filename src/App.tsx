@@ -8,21 +8,31 @@ import Card from "./routes/cards/Card";
 import NewCard from "./routes/cards/NewCard";
 import NotFound from "./routes/NotFound";
 import Container from "./Container";
+import DarkThemeContext from "./contexts/DarkThemeContext";
 
 function App() {
   return (
     <div className="App">
-      <Routes>
-        <Route path="/" element={<Container />}>
-          <Route path="" element={<Main />} />
-          <Route path="/cards">
-            <Route path="" element={<Cards />} />
-            <Route path=":id" element={<Card />} />
-            <Route path="new" element={<NewCard />} />
+      <DarkThemeContext.Provider value="light">
+        <Routes>
+          <Route path="/" element={<Container />}>
+            <Route
+              path=""
+              element={
+                <DarkThemeContext.Provider value="dark">
+                  <Main />
+                </DarkThemeContext.Provider>
+              }
+            />
+            <Route path="/cards">
+              <Route path="" element={<Cards />} />
+              <Route path=":id" element={<Card />} />
+              <Route path="new" element={<NewCard />} />
+            </Route>
+            <Route path="*" element={<NotFound />} />
           </Route>
-          <Route path="*" element={<NotFound />} />
-        </Route>
-      </Routes>
+        </Routes>
+      </DarkThemeContext.Provider>
     </div>
   );
 }
