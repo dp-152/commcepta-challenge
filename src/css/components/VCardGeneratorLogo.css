@@ -10,6 +10,11 @@
   clear: left;
   font-size: 104px;
   margin-top: -15px;
+}
+.VCardGeneratorLogo-topText.theme-light {
+  color: var(--color-light-theme-text);
+}
+.VCardGeneratorLogo-topText.theme-dark {
   color: var(--color-dark-theme-accent);
 }
 
@@ -24,6 +29,11 @@
 @supports (--webkit-text-stroke: 1px #fff) {
   .VCardGeneratorLogo {
     -webkit-text-stroke-width: 2px;
+  }
+  .VCardGeneratorLogo.theme-light {
+    -webkit-text-stroke-color: var(--color-light-theme-text);
+  }
+  .VCardGeneratorLogo.theme-dark {
     -webkit-text-stroke-color: var(--color-dark-theme-accent);
   }
 
