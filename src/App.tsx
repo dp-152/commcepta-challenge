@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import "./css/App.css";
 
@@ -8,22 +8,22 @@ import Card from "./routes/cards/Card";
 import NewCard from "./routes/cards/NewCard";
 import NotFound from "./routes/NotFound";
 import Container from "./Container";
-import ThemeContext from "./contexts/ThemeContext";
+import ThemeContext, { Theme, LightOrDark } from "./contexts/ThemeContext";
 
 function App() {
+  const [themeState, setThemeState] = useState<LightOrDark>("light");
+  const themeContext = {
+    theme: themeState,
+    setTheme: (value: LightOrDark) => {
+      setThemeState(value);
+    },
+  } as Theme;
   return (
-    <div className="App">
-      <ThemeContext.Provider value="light">
+    <ThemeContext.Provider value={themeContext}>
+      <div className="App">
         <Routes>
           <Route path="/" element={<Container />}>
-            <Route
-              path=""
-              element={
-                <ThemeContext.Provider value="dark">
-                  <Main />
-                </ThemeContext.Provider>
-              }
-            />
+            <Route path="" element={<Main />} />
             <Route path="/cards">
               <Route path="" element={<Cards />} />
               <Route path=":id" element={<Card />} />
@@ -32,8 +32,8 @@ function App() {
             <Route path="*" element={<NotFound />} />
           </Route>
         </Routes>
-      </ThemeContext.Provider>
-    </div>
+      </div>
+    </ThemeContext.Provider>
   );
 }
 

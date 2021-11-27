@@ -1,3 +1,13 @@
 import { createContext } from "react";
 
-export default createContext<"light" | "dark">("light");
+export type LightOrDark = "light" | "dark";
+
+export interface Theme {
+  theme: LightOrDark;
+  setTheme: (theme: LightOrDark) => void;
+}
+
+export default createContext<Theme>({
+  theme: "light",
+  setTheme(theme) {},
+});
