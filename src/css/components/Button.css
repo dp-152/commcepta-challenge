@@ -20,10 +20,12 @@
 }
 .Button.size-small {
   min-width: 190px;
+  width: fit-content;
   height: 63px;
 }
 .Button.size-large {
   min-width: 352px;
+  width: fit-content;
   height: 88px;
 }
 
