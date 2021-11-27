@@ -24,6 +24,12 @@
   background-position: left bottom, right top;
   background-repeat: no-repeat, no-repeat;
 }
+.Container-main.theme-light {
+  background-color: var(--color-light-theme-background);
+}
+.Container-main.theme-dark {
+  background-color: var(--color-dark-theme-background);
+}
 
 .Container-footer {
   height: 57px;
@@ -38,6 +44,14 @@
   line-height: normal;
   margin-left: 40px;
   color: #AAAAAA;
+}
+
+.Container-footer.theme-light {
+  background-color: var(--color-light-theme-background);
+}
+
+.Container-footer.theme-dark {
+  background-color: var(--color-dark-theme-background);
 }
 
 .Container-footer-copyrightnotice.theme-light {
