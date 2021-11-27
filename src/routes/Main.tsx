@@ -1,7 +1,7 @@
 import React, { ReactElement } from "react";
 
 import Button from "../components/Button";
-import VCardGeneratorIcon from "../components/VCardGeneratorIcon";
+import VCardGeneratorLogo from "../components/VCardGeneratorLogo";
 
 import "../css/routes/Main.css";
 
@@ -11,7 +11,7 @@ import iconVCard from "../assets/icon vcard.svg";
 export default function Main(): ReactElement {
   return (
     <section className="MainPage-wrapper">
-      <VCardGeneratorIcon />
+      <VCardGeneratorLogo />
       <Button
         icon={iconCarinha}
         target="/cards"

@@ -6,7 +6,7 @@ import Button from "../../components/Button";
 import SelectField, {
   Option as SelectOption,
 } from "../../components/SelectField";
-import VCardGeneratorIcon from "../../components/VCardGeneratorIcon";
+import VCardGeneratorLogo from "../../components/VCardGeneratorLogo";
 import BackButton from "../../components/BackButton";
 import repo from "../../repository/DefaultCommceptersRepository";
 import { CardData } from "../../data/CardData";
@@ -35,7 +35,7 @@ export default function Cards(): ReactElement {
 
   return (
     <div>
-      <VCardGeneratorIcon />
+      <VCardGeneratorLogo />
       <div>
         <SelectField
           name="candidato"

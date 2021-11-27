@@ -3,7 +3,7 @@ import React, { ReactElement, useCallback, useState } from "react";
 import BackButton from "../../components/BackButton";
 import CardContainer from "../../components/CardContainer";
 import NewCardForm from "../../components/NewCardForm";
-import VCardGeneratorIcon from "../../components/VCardGeneratorIcon";
+import VCardGeneratorLogo from "../../components/VCardGeneratorLogo";
 import { CardData } from "../../data/CardData";
 import repo from "../../repository/DefaultCommceptersRepository";
 
@@ -34,7 +34,7 @@ export default function NewCard(): ReactElement {
     </div>
   ) : (
     <div>
-      <VCardGeneratorIcon />
+      <VCardGeneratorLogo />
       <BackButton />
       <NewCardForm submitHandler={submitHandler} />
     </div>
