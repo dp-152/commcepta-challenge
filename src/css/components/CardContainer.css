@@ -1,8 +1,57 @@
-.CardContainer-name {
+.CardContainer {
+  display: grid;
+  gap: 60px;
+  padding: 63px;
+}
+
+.CardContainer-top {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 100%;
+}
+
+.CardContainer-details {  
   font-weight: bold;
+  justify-self: left;
+  letter-spacing: -0.9px;
+  color: var(--color-light-theme-text-accent);
 }
 
-.CardContainer-title {
-  color: blue;
+.CardContainer-name {
+  font-size: 36px;
+  line-height: 33px;
+  float: left;
+  clear: left;
 }
 
+.CardContainer-position {
+  font-size: 33px;
+  font-style: italic;
+  float: left;
+  clear: left;
+}
+
+.CardContainer-icon {
+  justify-self: right;
+  width: auto;
+}
+
+.CardContainer-qrcode {
+  height: 300px;
+  justify-self: center;
+}
+
+.CardContainer-logo {
+  margin-top: 20px;
+}
+
+@supports (-webkit-text-stroke: 1px #fff) {
+  .CardContainer-details {
+    -webkit-text-stroke-color: var(--color-light-theme-text-accent);
+    -webkit-text-stroke-width: 1.5px;
+  }
+
+  .CardContainer-position {
+      color: transparent;
+  }
+}
