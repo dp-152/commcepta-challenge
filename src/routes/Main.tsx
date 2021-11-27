@@ -3,12 +3,14 @@ import React, { ReactElement } from "react";
 import Button from "../components/Button";
 import VCardGeneratorIcon from "../components/VCardGeneratorIcon";
 
+import "../css/routes/Main.css";
+
 import iconCarinha from "../assets/icon carinha.svg";
 import iconVCard from "../assets/icon vcard.svg";
 
 export default function Main(): ReactElement {
   return (
-    <div>
+    <section className="MainPage-wrapper">
       <VCardGeneratorIcon />
       <Button
         icon={iconCarinha}
@@ -24,6 +26,6 @@ export default function Main(): ReactElement {
         theme="dark"
         size="large"
       />
-    </div>
+    </section>
   );
 }
