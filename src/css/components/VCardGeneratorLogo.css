@@ -3,7 +3,6 @@
   text-align: left;
   letter-spacing: -2.6px;
   font-weight: bold;
-  -webkit-text-stroke: 3px var(--color-dark-theme-accent);
 }
 
 .VCardGeneratorLogo-topText {
@@ -19,5 +18,16 @@
   clear: left;
   font-size: 84px;
   margin-top: -55px;
-  color: #00000000
+}
+
+/* TODO: Add animation */
+@supports (--webkit-text-stroke: 1px #fff) {
+  .VCardGeneratorLogo {
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: var(--color-dark-theme-accent);
+  }
+
+  .VCardGeneratorLogo-bottomText {
+    color: transparent;
+  }
 }
