@@ -1,0 +1,23 @@
+.VCardGeneratorLogo {
+  margin: 0;
+  text-align: left;
+  letter-spacing: -2.6px;
+  font-weight: bold;
+  -webkit-text-stroke: 3px var(--color-dark-theme-accent);
+}
+
+.VCardGeneratorLogo-topText {
+  float: left;
+  clear: left;
+  font-size: 104px;
+  margin-top: -15px;
+  color: var(--color-dark-theme-accent);
+}
+
+.VCardGeneratorLogo-bottomText {
+  float: left;
+  clear: left;
+  font-size: 84px;
+  margin-top: -55px;
+  color: #00000000
+}
