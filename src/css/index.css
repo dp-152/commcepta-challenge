@@ -1,21 +1,20 @@
 body {
   margin: 0;
-  font-family: "Meta Correspondence Pro", -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: "Meta Correspondence Pro", -apple-system, BlinkMacSystemFont,
+    "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
+    "Droid Sans", "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
 
 a {
   text-decoration: none;
 }
-
 
 /* Global variables */
 
@@ -25,9 +24,44 @@ a {
   --color-dark-theme-accent: #0fd9e7;
 
   --color-light-theme-background: #f0f2f5;
-  --color-light-theme-text: #2e79de;
+  --color-light-theme-text: #2A3237;
+  --color-light-theme-text-accent: #2e79de;
   --color-light-theme-faded: #aaaaaa;
   --color-light-theme-accent: #fa8e2c;
+  --color-light-theme-box-shadow1: #00000005;
+  --color-light-theme-box-shadow2: #0000000d;
+  --color-light-theme-field-border: #ffffff;
+  --color-light-theme-field-background: #f9fafb;
 
   --color-topbar: #2e79de;
+}
+
+/* Global styles */
+
+/* Form elements */
+
+input,
+select {
+  width: 100%;
+  height: 63px;
+  border-radius: 23px;
+  padding: 0.5em;
+  border: none;
+}
+
+label {
+  display: block;
+  margin: 0 0 10px 25px;
+  font-size: 22px;
+}
+
+input.theme-light, select.theme-light {
+  background: var(--color-light-theme-field-background) 0% 0% no-repeat padding-box;
+  box-shadow: inset 0px 0px 9px var(--color-light-theme-box-shadow1), 0px 0px 15px var(--color-light-theme-box-shadow2);
+  border: 3px solid var(--color-light-theme-field-border);
+  color: var(--color-light-theme-text);
+}
+
+label.theme-light {
+  color: var(--color-light-theme-text-accent);
 }
