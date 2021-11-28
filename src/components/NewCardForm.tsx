@@ -1,6 +1,10 @@
 import React, { ReactElement } from "react";
 import { useForm, RegisterOptions } from "react-hook-form";
+
+import "../css/components/NewCardForm.css";
+
 import { CardData } from "../data/CardData";
+import Button from "./Button";
 import InputField from "./InputField";
 
 interface Props {
@@ -49,80 +53,88 @@ export default function NewCardForm({ submitHandler }: Props): ReactElement {
   };
 
   return (
-    <form onSubmit={handleSubmit(submitHandler)}>
-      <InputField
-        type="text"
-        registrator={register}
-        fieldName="firstName"
-        fieldLabel="Nome"
-        errors={errors}
-        opts={opts.textField}
-      />
+    <form className="NewCardForm" onSubmit={handleSubmit(submitHandler)}>
+      <div className="NewCardForm-divide-middle">
+        <InputField
+          type="text"
+          registrator={register}
+          fieldName="firstName"
+          fieldLabel="Nome"
+          errors={errors}
+          opts={opts.textField}
+        />
 
-      <InputField
-        type="text"
-        registrator={register}
-        fieldName="lastName"
-        fieldLabel="Sobrenome"
-        errors={errors}
-        opts={opts.textField}
-      />
+        <InputField
+          type="text"
+          registrator={register}
+          fieldName="lastName"
+          fieldLabel="Sobrenome"
+          errors={errors}
+          opts={opts.textField}
+        />
+      </div>
+      <div className="NewCardForm-divide-thirds">
+        <InputField
+          control={control}
+          fieldName="phone"
+          fieldLabel="Celular"
+          format="(##) #####-####"
+          errors={errors}
+          opts={opts.phoneField}
+        />
 
-      <InputField
-        control={control}
-        fieldName="phone"
-        fieldLabel="Celular"
-        format="(##) #####-####"
-        errors={errors}
-        opts={opts.phoneField}
-      />
+        <InputField
+          type="email"
+          registrator={register}
+          fieldName="email"
+          fieldLabel="E-mail"
+          errors={errors}
+          opts={opts.emailField}
+        />
+      </div>
 
-      <InputField
-        type="email"
-        registrator={register}
-        fieldName="email"
-        fieldLabel="E-mail"
-        errors={errors}
-        opts={opts.emailField}
-      />
+      <div className="NewCardForm-divide-middle">
+        <InputField
+          type="text"
+          registrator={register}
+          fieldName="position"
+          fieldLabel="Cargo"
+          errors={errors}
+          opts={opts.textField}
+        />
 
-      <InputField
-        type="text"
-        registrator={register}
-        fieldName="position"
-        fieldLabel="Cargo"
-        errors={errors}
-        opts={opts.textField}
-      />
+        <InputField
+          type="text"
+          registrator={register}
+          fieldName="state"
+          fieldLabel="Estado"
+          errors={errors}
+          opts={opts.textField}
+        />
+      </div>
 
-      <InputField
-        type="text"
-        registrator={register}
-        fieldName="state"
-        fieldLabel="Estado"
-        errors={errors}
-        opts={opts.textField}
-      />
+      <div className="NewCardForm-divide-fourths">
+        <InputField
+          type="text"
+          registrator={register}
+          fieldName="city"
+          fieldLabel="Cidade"
+          errors={errors}
+          opts={opts.textField}
+        />
 
-      <InputField
-        type="text"
-        registrator={register}
-        fieldName="city"
-        fieldLabel="Cidade"
-        errors={errors}
-        opts={opts.textField}
-      />
-
-      <InputField
-        type="text"
-        registrator={register}
-        fieldName="address"
-        fieldLabel="Rua"
-        errors={errors}
-        opts={opts.addressField}
-      />
-      {/* TODO: Rework Button component to fit this case as well */}
-      <button type="submit">gerar vCard</button>
+        <InputField
+          type="text"
+          registrator={register}
+          fieldName="address"
+          fieldLabel="Rua"
+          errors={errors}
+          opts={opts.addressField}
+        />
+      </div>
+      <div className="NewCardForm-submit">
+        <Button text="gerar vCard" size="small" target="$form-submit" />
+      </div>
     </form>
   );
 }
