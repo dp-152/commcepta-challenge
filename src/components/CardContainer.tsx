@@ -1,8 +1,9 @@
-import React, { ReactElement } from "react";
+import React, { ReactElement, useContext } from "react";
 
 import "../css/components/CardContainer.css";
 import logoIcon from "../assets/icon commcepta.png";
 import logoText from "../assets/logo commcepta.png";
+import ThemeContext from "../contexts/ThemeContext";
 
 interface Props {
   firstName: string;
@@ -17,23 +18,26 @@ export default function CardContainer({
   position,
   b64QrCode,
 }: Props): ReactElement {
+  const { theme } = useContext(ThemeContext);
   return (
-    <div className="CardContainer">
-      <div className="CardContainer-top">
-        <div className="CardContainer-details">
-          <span className="CardContainer-name">{firstName}</span>
-          <span className="CardContainer-name">{lastName}</span>
-          <span className="CardContainer-position">{position}</span>
+    <div className={`CardContainer theme-${theme}`}>
+      <div className="CardContainer-inner">
+        <div className="CardContainer-top">
+          <div className="CardContainer-details">
+            <span className="CardContainer-name">{firstName}</span>
+            <span className="CardContainer-name">{lastName}</span>
+            <span className="CardContainer-position">{position}</span>
+          </div>
+          <div className="CardContainer-icon">
+            <img src={logoIcon} alt="Logo icon" />
+          </div>
         </div>
-        <div className="CardContainer-icon">
-          <img src={logoIcon} alt="Logo icon" />
+        <div className="CardContainer-qrcode">
+          <img src={`data:image/png;base64,${b64QrCode}`} alt="QR Code" />
         </div>
-      </div>
-      <div className="CardContainer-qrcode">
-        <img src={`data:image/png;base64,${b64QrCode}`} alt="QR Code" />
-      </div>
-      <div className="CardContainer-logo">
-        <img src={logoText} alt="Logo commcepta" />
+        <div className="CardContainer-logo">
+          <img src={logoText} alt="Logo commcepta" />
+        </div>
       </div>
     </div>
   );
