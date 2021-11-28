@@ -55,7 +55,6 @@ select {
   width: 100%;
   height: 63px;
   border-radius: 23px;
-  padding: 0.5em;
   border: none;
   font-size: 20px;
   padding-left: 18px;
@@ -76,4 +75,14 @@ input.theme-light, select.theme-light {
 
 label.theme-light {
   color: var(--color-light-theme-text-accent);
+}
+
+button, input[type="submit"], input[type="reset"] {
+	background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
 }
