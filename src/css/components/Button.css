@@ -1,31 +1,39 @@
 .Button {
-  display: inline-block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-size: 22px;
-  text-align: left;
+  border-radius: 23px;
 }
-
-.Button-theme-light {
-  background-color: #FA8E2C;
+.Button.theme-light {
+  background-color: var(--color-light-theme-accent);
+  color: var(--color-light-theme-white);
 }
-
-.Button-theme-light.disabled {
-  background-color: #aaa;
+.Button.theme-light.disabled {
+  background-color: var(--color-light-theme-faded);
 }
-
-.Button-theme-dark {
-  background-color: #0FD9E7;
+.Button.theme-dark {
+  background-color: var(--color-dark-theme-accent);
+  color: var(--color-dark-theme-text);
 }
-
-.Button-theme-dark.disabled {
-  background-color: #ccc;
+.Button.theme-dark.disabled {
+  background-color: #ccc; /* No global color definition for this state */
 }
-
-.Button-size-small {
+.Button.size-small {
   min-width: 190px;
+  width: fit-content;
   height: 63px;
 }
-
-.Button-size-large {
+.Button.size-large {
   min-width: 352px;
+  width: fit-content;
   height: 88px;
+}
+
+.Button-icon {
+  margin-top: 7px;
+}
+
+.Button-text-icon {
+  margin-left: 10px;
 }

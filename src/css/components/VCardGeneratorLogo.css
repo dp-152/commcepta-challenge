@@ -1,0 +1,43 @@
+.VCardGeneratorLogo {
+  margin: 0;
+  text-align: left;
+  letter-spacing: -2.6px;
+  font-weight: bold;
+}
+
+.VCardGeneratorLogo-topText {
+  float: left;
+  clear: left;
+  font-size: 104px;
+  margin-top: -15px;
+}
+.VCardGeneratorLogo-topText.theme-light {
+  color: var(--color-light-theme-text-accent);
+}
+.VCardGeneratorLogo-topText.theme-dark {
+  color: var(--color-dark-theme-accent);
+}
+
+.VCardGeneratorLogo-bottomText {
+  float: left;
+  clear: left;
+  font-size: 84px;
+  margin-top: -55px;
+}
+
+/* TODO: Add animation */
+@supports (-webkit-text-stroke: 1px #fff) {
+  .VCardGeneratorLogo {
+    -webkit-text-stroke-width: 2px;
+  }
+  .VCardGeneratorLogo.theme-light {
+    -webkit-text-stroke-color: var(--color-light-theme-text-accent);
+  }
+  .VCardGeneratorLogo.theme-dark {
+    -webkit-text-stroke-color: var(--color-dark-theme-accent);
+  }
+
+  .VCardGeneratorLogo-bottomText {
+    color: transparent;
+  }
+}

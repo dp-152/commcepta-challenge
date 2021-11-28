@@ -1,12 +1,32 @@
-import React, { ReactElement } from "react";
-import { Outlet } from "react-router-dom";
+import React, { ReactElement, useContext } from "react";
+import { Link, Outlet } from "react-router-dom";
+
+import "./css/Container.css";
+import logo from "./assets/logo commcepta.png";
+import ThemeContext from "./contexts/ThemeContext";
 
 export default function Container(): ReactElement {
+  const { theme } = useContext(ThemeContext);
   return (
-    <div>
-      <h1>TOP</h1>
-      <Outlet />
-      <p>BOTTOM</p>
+    <div className="Container">
+      <header className="Container-header">
+        <Link to="/">
+          <img
+            src={logo}
+            alt="Logo"
+            className="Container-header-logo"
+            width="228"
+          />
+        </Link>
+      </header>
+      <main className={`Container-main theme-${theme}`}>
+        <Outlet />
+      </main>
+      <footer className={`Container-footer theme-${theme}`}>
+        <span className={`Container-footer-copyrightnotice theme-${theme}`}>
+          © 2021. Docummented as Commcepter
+        </span>
+      </footer>
     </div>
   );
 }

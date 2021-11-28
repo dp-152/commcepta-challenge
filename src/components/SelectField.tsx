@@ -1,4 +1,7 @@
-import React, { ChangeEvent, ReactElement } from "react";
+import React, { ChangeEvent, ReactElement, useContext } from "react";
+
+import "../css/components/SelectField.css";
+import ThemeContext from "../contexts/ThemeContext";
 
 export interface Option {
   id: number;
@@ -20,10 +23,18 @@ export default function SelectField({
   options,
   promptMessage,
 }: Props): ReactElement {
+  const { theme } = useContext(ThemeContext);
   return (
-    <div>
-      <label htmlFor={name}>{label}</label>
-      <select name={name} defaultValue="" onChange={changeHandler}>
+    <div className="SelectField-wrapper">
+      <label htmlFor={name} className={`SelectField-label theme-${theme}`}>
+        {label}
+      </label>
+      <select
+        name={name}
+        defaultValue=""
+        onChange={changeHandler}
+        className={`SelectField theme-${theme}`}
+      >
         <option hidden disabled value="">
           {promptMessage || ""}
         </option>

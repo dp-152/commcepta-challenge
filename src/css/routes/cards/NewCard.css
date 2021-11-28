@@ -1,0 +1,25 @@
+.NewCardPage-wrapper {
+  display: grid;
+  align-items: center;
+  gap: 40px;
+  grid-template-columns: 0.3fr 2.14fr;
+  margin: 70px 15px;
+}
+
+.NewCardPage-grid-left {
+  display: grid;
+  justify-items: left;
+}
+
+.NewCardPage-backbutton {
+  margin-top: 100px;
+}
+
+@media (max-width: 1100px) {
+  .NewCardPage-wrapper {
+    grid-template-columns: 1fr;
+  }
+  .NewCardPage-backbutton {
+    margin-top: 10px;
+  }
+}

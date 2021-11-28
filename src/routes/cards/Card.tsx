@@ -1,19 +1,27 @@
-import React, { ReactElement, useState, useEffect } from "react";
+import React, { ReactElement, useState, useEffect, useContext } from "react";
 import { useParams, useNavigate } from "react-router";
-import BackButton from "../../components/BackButton";
+
+import "../../css/routes/cards/Card.css";
 
 import CardContainer from "../../components/CardContainer";
+import ThemeContext from "../../contexts/ThemeContext";
 import { CardData } from "../../data/CardData";
 import repo from "../../repository/DefaultCommceptersRepository";
-
+import BackButton from "../../components/BackButton";
 
 export default function Card(): ReactElement {
+  const { theme, setTheme } = useContext(ThemeContext);
   const [userData, setUserData] = useState({} as CardData);
   const [qrCode, setQrCode] = useState("");
   const params = useParams();
   const nav = useNavigate();
 
   useEffect(() => {
+    setTheme("light");
+  }, [setTheme]);
+
+  useEffect(() => {
+    // TODO: loading animation while waiting for response
     (async function () {
       const repoData = await repo.getByID(+params!.id!);
       if (!repoData) {
@@ -38,14 +46,16 @@ export default function Card(): ReactElement {
   }, [params, userData, setQrCode]);
 
   return (
-    <div>
-      <BackButton />
+    <section className={`CardPage-wrapper theme-${theme}`}>
+      <div className="CardPage-backbutton-container">
+        <BackButton />
+      </div>
       <CardContainer
         firstName={userData.firstName}
         lastName={userData.lastName}
         position={userData.position}
         b64QrCode={qrCode}
       />
-    </div>
+    </section>
   );
 }
