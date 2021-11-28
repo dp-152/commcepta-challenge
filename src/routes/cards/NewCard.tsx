@@ -28,6 +28,7 @@ export default function NewCard(): ReactElement {
     data.company = "Commcepta";
     setUserData(data);
     setShouldRenderCard(true);
+    window.history.pushState(null, "", "/card/-1");
 
     repo.makeQRCode(data).then(img => {
       setQrCode(img);
