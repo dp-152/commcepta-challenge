@@ -6,17 +6,20 @@
   margin: 70px 15px;
 }
 
-.NewCardPage-grid-right {
+.NewCardPage-grid-left {
   display: grid;
-  gap: 35px;
-  grid-template-columns: auto min-content;
+  justify-items: left;
+}
+
+.NewCardPage-backbutton {
+  margin-top: 100px;
 }
 
 @media (max-width: 1100px) {
   .NewCardPage-wrapper {
     grid-template-columns: 1fr;
   }
-  .NewCardPage-grid-right {
-    grid-template-columns: 1fr;
+  .NewCardPage-backbutton {
+    margin-top: 10px;
   }
 }

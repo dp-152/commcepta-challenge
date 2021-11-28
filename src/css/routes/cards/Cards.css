@@ -2,6 +2,7 @@
   display: grid;
   align-items: center;
   gap: 40px;
+  margin: 70px 15px;
   grid-template-columns: 0.3fr 2.14fr;
 }
 
@@ -21,11 +22,19 @@
   margin-top: 40px;
 }
 
+.CardsPage-backbutton-container {
+  text-align: left;
+  margin-top: 100px;
+}
+
 @media (max-width: 1100px) {
   .CardsPage-wrapper {
     grid-template-columns: 1fr;
   }
   .CardsPage-grid-right {
     grid-template-columns: 1fr;
+  }
+  .CardsPage-backbutton-container {
+    margin: 0;
   }
 }

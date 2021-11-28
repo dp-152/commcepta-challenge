@@ -12,6 +12,7 @@ import VCardGeneratorLogo from "../../components/VCardGeneratorLogo";
 import repo from "../../repository/DefaultCommceptersRepository";
 import ThemeContext from "../../contexts/ThemeContext";
 import { CardData } from "../../data/CardData";
+import BackButton from "../../components/BackButton";
 
 export default function Cards(): ReactElement {
   const { setTheme } = useContext(ThemeContext);
@@ -63,6 +64,9 @@ export default function Cards(): ReactElement {
             isDisabled={isButtonDisabled}
           />
         </div>
+      </div>
+      <div className="CardsPage-backbutton-container">
+        <BackButton />
       </div>
     </section>
   );

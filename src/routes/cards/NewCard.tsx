@@ -14,6 +14,7 @@ import VCardGeneratorLogo from "../../components/VCardGeneratorLogo";
 import ThemeContext from "../../contexts/ThemeContext";
 import { CardData } from "../../data/CardData";
 import repo from "../../repository/DefaultCommceptersRepository";
+import BackButton from "../../components/BackButton";
 
 export default function NewCard(): ReactElement {
   const { theme, setTheme } = useContext(ThemeContext);
@@ -49,7 +50,12 @@ export default function NewCard(): ReactElement {
     </section>
   ) : (
     <section className={`NewCardPage-wrapper theme-${theme}`}>
-      <VCardGeneratorLogo />
+      <div className="NewCardPage-grid-left">
+        <VCardGeneratorLogo />
+        <div className="NewCardPage-backbutton">
+          <BackButton />
+        </div>
+      </div>
       <NewCardForm submitHandler={submitHandler} />
     </section>
   );

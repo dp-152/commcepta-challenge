@@ -7,6 +7,7 @@ import CardContainer from "../../components/CardContainer";
 import ThemeContext from "../../contexts/ThemeContext";
 import { CardData } from "../../data/CardData";
 import repo from "../../repository/DefaultCommceptersRepository";
+import BackButton from "../../components/BackButton";
 
 export default function Card(): ReactElement {
   const { theme, setTheme } = useContext(ThemeContext);
@@ -46,6 +47,9 @@ export default function Card(): ReactElement {
 
   return (
     <section className={`CardPage-wrapper theme-${theme}`}>
+      <div className="CardPage-backbutton-container">
+        <BackButton />
+      </div>
       <CardContainer
         firstName={userData.firstName}
         lastName={userData.lastName}
