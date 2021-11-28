@@ -1,9 +1,6 @@
-.InputField {
-  font-size: 22px;
-}
 
-.InputField-error {
-  background-color: red;
+.InputField-error input {
+  border: 2px solid #ff0000;
 }
 
 .InputField-errormsg {
