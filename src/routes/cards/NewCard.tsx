@@ -6,7 +6,8 @@ import React, {
   useContext,
 } from "react";
 
-import BackButton from "../../components/BackButton";
+import "../../css/routes/cards/NewCard.css";
+
 import CardContainer from "../../components/CardContainer";
 import NewCardForm from "../../components/NewCardForm";
 import VCardGeneratorLogo from "../../components/VCardGeneratorLogo";
@@ -35,6 +36,8 @@ export default function NewCard(): ReactElement {
     });
   }, []);
 
+  // TODO: Use a context to pass new card info to card route
+  // instead of rendering a card here
   return shouldRenderCard ? (
     <section className={`CardPage-wrapper theme-${theme}`}>
       <CardContainer
@@ -45,10 +48,9 @@ export default function NewCard(): ReactElement {
       />
     </section>
   ) : (
-    <div>
+    <section className={`NewCardPage-wrapper theme-${theme}`}>
       <VCardGeneratorLogo />
-      <BackButton />
       <NewCardForm submitHandler={submitHandler} />
-    </div>
+    </section>
   );
 }
