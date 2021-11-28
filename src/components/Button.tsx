@@ -21,28 +21,36 @@ export default function Button({
 }: Props): ReactElement {
   const { theme } = useContext(ThemeContext);
   const location = useLocation();
-  return (
+
+  const innerButton = (
+    <div
+      className={
+        "Button " +
+        `theme-${theme} ` +
+        `size-${size} ` +
+        (isDisabled ? "disabled" : "")
+      }
+    >
+      {icon ? (
+        <span className="Button-icon">
+          <img src={icon} alt={icon} height="45" />
+        </span>
+      ) : (
+        ""
+      )}
+      <span className={"Button-text" + (icon ? "-icon" : "")}>{text}</span>
+    </div>
+  );
+  return target === "$form-submit" ? (
+    <button type="submit" disabled={isDisabled}>
+      {innerButton}
+    </button>
+  ) : (
     <Link
       to={isDisabled ? location.pathname : target}
       className={isDisabled ? "disabled" : ""}
     >
-      <div
-        className={
-          "Button " +
-          `theme-${theme} ` +
-          `size-${size} ` +
-          (isDisabled ? "disabled" : "")
-        }
-      >
-        {icon ? (
-          <span className="Button-icon">
-            <img src={icon} alt={icon} height="45" />
-          </span>
-        ) : (
-          ""
-        )}
-        <span className={"Button-text" + (icon ? "-icon" : "")}>{text}</span>
-      </div>
+      {innerButton}
     </Link>
   );
 }
