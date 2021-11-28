@@ -1,4 +1,4 @@
-import React, { ReactElement } from "react";
+import React, { ReactElement, useContext } from "react";
 import NumberFormat, { FormatInputValueFunction } from "react-number-format";
 import {
   Controller,
@@ -10,6 +10,7 @@ import {
 
 import "../css/components/InputField.css";
 import { RequireEither } from "../util/types";
+import ThemeContext from "../contexts/ThemeContext";
 
 interface Props {
   type?: React.HTMLInputTypeAttribute;
@@ -32,13 +33,16 @@ export default function InputField({
   opts,
   errors,
 }: RequireEither<Props, "registrator" | "control">): ReactElement {
+  const { theme } = useContext(ThemeContext);
   const error = errors[fieldName];
 
   // Null check to make TypeScript happy
   const registration = registrator && registrator(fieldName, opts);
   return (
     <span className={"InputField " + (error ? "InputField-error" : "")}>
-      <label htmlFor={fieldName}>{fieldLabel}</label>
+      <label className={`theme-${theme}`} htmlFor={fieldName}>
+        {fieldLabel}
+      </label>
       {format ? (
         <Controller
           render={({ field }) => (
