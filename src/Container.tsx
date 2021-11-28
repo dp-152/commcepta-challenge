@@ -1,5 +1,5 @@
 import React, { ReactElement, useContext } from "react";
-import { Outlet } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 
 import "./css/Container.css";
 import logo from "./assets/logo commcepta.png";
@@ -10,12 +10,14 @@ export default function Container(): ReactElement {
   return (
     <div className="Container">
       <header className="Container-header">
-        <img
-          src={logo}
-          alt="Logo"
-          className="Container-header-logo"
-          width="228"
-        />
+        <Link to="/">
+          <img
+            src={logo}
+            alt="Logo"
+            className="Container-header-logo"
+            width="228"
+          />
+        </Link>
       </header>
       <main className={`Container-main theme-${theme}`}>
         <Outlet />
