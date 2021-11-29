@@ -18,26 +18,25 @@
   color: var(--color-dark-theme-accent);
 }
 
-.VCardGeneratorLogo-bottomText {
+.VCardGeneratorLogo-svgContainer {
   float: left;
   clear: left;
-  font-size: 84px;
-  margin-top: -55px;
+  fill: none;
+  font: bold 104px "Meta Correspondence Pro";
+  width: 350px;
+  height: 120px;
+  margin-top: -20px;
 }
 
-/* TODO: Add animation */
-@supports (-webkit-text-stroke: 1px #fff) {
-  .VCardGeneratorLogo {
-    -webkit-text-stroke-width: 2px;
-  }
-  .VCardGeneratorLogo.theme-light {
-    -webkit-text-stroke-color: var(--color-light-theme-text-accent);
-  }
-  .VCardGeneratorLogo.theme-dark {
-    -webkit-text-stroke-color: var(--color-dark-theme-accent);
-  }
+.VCardGeneratorLogo-svgText {
+  stroke-width: 3px;
+  stroke-linejoin: miter;
+}
 
-  .VCardGeneratorLogo-bottomText {
-    color: transparent;
-  }
+.VCardGeneratorLogo-svgText.theme-light {  
+  stroke: var(--color-light-theme-text-accent);
+}
+
+.VCardGeneratorLogo-svgText.theme-dark {  
+  stroke: var(--color-dark-theme-accent);
 }

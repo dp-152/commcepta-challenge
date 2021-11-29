@@ -4,13 +4,14 @@
   margin: 70px 15px;
   border-radius: 68px;
   opacity: 1;
-  background-image: url("../../assets/risquinhos\ card\ esquerda.svg");
-  background-position: left bottom;
-  background-repeat: no-repeat;
+  background-image: url("../../assets/risquinhos\ card\ esquerda.svg"), url("../../assets/risquinhos\ card\ direita.svg");
+  background-position: left bottom, right bottom;
+  background-repeat: no-repeat, no-repeat;
 }
-.CardContainer {  
+.CardContainer {
   background-color: var(--color-light-theme-field-background);
-  box-shadow: inset 0px 0px 9px var(--color-light-theme-box-shadow1), 0px 0px 15px var(--color-light-theme-box-shadow2);
+  box-shadow: inset 0px 0px 9px var(--color-light-theme-box-shadow1),
+    0px 0px 15px var(--color-light-theme-box-shadow2);
   border: 3px solid var(--color-light-theme-card-border);
 }
 
@@ -26,7 +27,7 @@
   width: 100%;
 }
 
-.CardContainer-details {  
+.CardContainer-details {
   font-weight: bold;
   justify-self: left;
   letter-spacing: -0.9px;
@@ -41,10 +42,19 @@
 }
 
 .CardContainer-position {
-  font-size: 33px;
-  font-style: italic;
   float: left;
   clear: left;
+  font: italic bold 33px "Meta Correspondence Pro";
+  width: 335px;
+  height: 45px;
+  margin-left: -5px;
+}
+
+.CardContainer-position-svgText {
+  fill: none;
+  stroke: var(--color-light-theme-text-accent);
+  stroke-width: 1.5px;
+  stroke-linejoin: miter;
 }
 
 .CardContainer-icon {
@@ -68,6 +78,6 @@
   }
 
   .CardContainer-position {
-      color: transparent;
+    color: transparent;
   }
 }

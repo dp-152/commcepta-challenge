@@ -8,9 +8,14 @@ export default function VCardGeneratorLogo(): ReactElement {
   return (
     <div className={`VCardGeneratorLogo theme-${theme}`}>
       <span className={`VCardGeneratorLogo-topText theme-${theme}`}>vCard</span>
-      <span className={`VCardGeneratorLogo-bottomText theme-${theme}`}>
-        generator
-      </span>
+      <svg
+        viewBox="0 0 450 50"
+        className={`VCardGeneratorLogo-svgContainer theme-${theme}`}
+      >
+        <text y="20" className={`VCardGeneratorLogo-svgText theme-${theme}`}>
+          generator
+        </text>
+      </svg>
     </div>
   );
 }
