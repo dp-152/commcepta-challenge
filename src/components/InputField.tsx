@@ -46,14 +46,19 @@ export default function InputField({
       {format ? (
         <Controller
           render={({ field }) => (
-            <NumberFormat {...field} format={format} mask="_" />
+            <NumberFormat
+              className={`theme-${theme}`}
+              {...field}
+              format={format}
+              mask="_"
+            />
           )}
           name={fieldName}
           rules={opts}
           control={control}
         />
       ) : (
-        <input {...registration} />
+        <input className={`theme-${theme}`} {...registration} />
       )}
       {error && <span className="InputField-errormsg">{error.message}</span>}
     </span>

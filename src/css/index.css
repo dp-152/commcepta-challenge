@@ -73,6 +73,11 @@ input.theme-light, select.theme-light {
   color: var(--color-light-theme-text);
 }
 
+input.theme-light:focus, select.theme-light:focus {
+  border: 3px solid var(--color-dark-theme-accent);
+  outline: 0;
+}
+
 label.theme-light {
   color: var(--color-light-theme-text-accent);
 }
