@@ -1,8 +1,11 @@
-# Getting Started with Create React App
+# Commcepta Challenge - vCard Generator
 
+A simple card generator app built using React.
+## Usage
+
+This project runs on node v14.0.0 or above.\
+**NOTE:** If running node v17.0.0 or above, add the flag `--openssl-legacy-provider` to the `NODE_OPTIONS` environment variable, since [react-scripts fails to build with Node 17](https://github.com/facebook/create-react-app/issues/11562).\
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
 
 In the project directory, you can run:
 
@@ -39,7 +42,7 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
+## About Create React App
 
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
