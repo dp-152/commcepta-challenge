@@ -26,7 +26,11 @@ export default function CardContainer({
           <div className="CardContainer-details">
             <span className="CardContainer-name">{firstName}</span>
             <span className="CardContainer-name">{lastName}</span>
-            <span className="CardContainer-position">{position}</span>
+            <svg viewBox="0 0 335 45" className="CardContainer-position">
+              <text x="1" y="29" className="CardContainer-position-svgText">
+                {position}
+              </text>
+            </svg>
           </div>
           <div className="CardContainer-icon">
             <img src={logoIcon} alt="Logo icon" />
