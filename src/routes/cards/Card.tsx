@@ -8,10 +8,12 @@ import ThemeContext from "../../contexts/ThemeContext";
 import { CardData } from "../../data/CardData";
 import repo from "../../repository/DefaultCommceptersRepository";
 import BackButton from "../../components/BackButton";
+import LocalCardDataContext from "../../contexts/LocalCardDataContext";
 
 export default function Card(): ReactElement {
   const { theme, setTheme } = useContext(ThemeContext);
-  const [userData, setUserData] = useState({} as CardData);
+  const { localData, setLocalData } = useContext(LocalCardDataContext);
+  const [cardData, setCardData] = useState({} as CardData);
   const [qrCode, setQrCode] = useState("");
   const params = useParams();
   const nav = useNavigate();
@@ -23,27 +25,32 @@ export default function Card(): ReactElement {
   useEffect(() => {
     // TODO: loading animation while waiting for response
     (async function () {
-      const repoData = await repo.getByID(+params!.id!);
-      if (!repoData) {
-        console.warn("No user found with this id.");
-        nav("/not-found");
-        return;
-      }
+      if (localData !== null && params?.id && params.id === "-1") {
+        setCardData(localData);
+        setLocalData(null);
+      } else if (params?.id && params.id !== "-1") {
+        const repoData = await repo.getByID(+params.id);
+        if (!repoData) {
+          console.warn("No user found with this id.");
+          nav("/not-found");
+          return;
+        }
 
-      setUserData(repoData);
+        setCardData(repoData);
+      }
     })();
-  }, [params, nav]);
+  }, [localData, setLocalData, params, nav]);
 
   useEffect(() => {
     (async function () {
       let img = await repo.getQRCode(+params!.id!);
       if (!img) {
-        img = await repo.makeQRCode(userData);
+        img = await repo.makeQRCode(cardData);
       }
 
       setQrCode(img);
     })();
-  }, [params, userData, setQrCode]);
+  }, [params, cardData, setQrCode]);
 
   return (
     <section className={`CardPage-wrapper theme-${theme}`}>
@@ -51,9 +58,9 @@ export default function Card(): ReactElement {
         <BackButton />
       </div>
       <CardContainer
-        firstName={userData.firstName}
-        lastName={userData.lastName}
-        position={userData.position}
+        firstName={cardData.firstName}
+        lastName={cardData.lastName}
+        position={cardData.position}
         b64QrCode={qrCode}
       />
     </section>
